@@ -1,0 +1,68 @@
+:root {
+    --primaryColor: #ffffff;
+    --secondaryColor: #f8f8f8;
+    --ternaryColor: #1a67af;
+    --ternaryHoverColor: #0b6ac2;
+}
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #6b6b6b;
+    font-weight: 100;
+}
+table {
+    margin: auto;
+    background-color: var(--secondaryColor);
+}
+
+table,
+td {
+    border: 1px solid #c2c2c2;
+    border-radius: 4px;
+}
+th {
+    height: 8rem;
+    font-size: 3.5rem;
+    font-weight: 400;
+    text-align: right;
+    vertical-align: bottom;
+    padding-right: 0.5rem;
+    padding-bottom: 1rem;
+}
+td {
+    background-color: var(--primaryColor);
+    text-align: center;
+    width: 7rem;
+    height: 5rem;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+td:hover {
+    background-color: var(--secondaryColor);
+}
+
+#equal-sign {
+    background-color: var(--ternaryColor);
+    color: var(--primaryColor);
+}
+#equal-sign:hover {
+    background-color: var(--ternaryHoverColor);
+}
+.del {
+    font-size: 1.2rem;
+}
+
+.del,
+.signs {
+    background-color: #fdfdfd;
+}
+
+.num,
+#display {
+    color: #000000;
+    font-weight: 400;
+}
+
