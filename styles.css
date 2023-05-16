@@ -44,11 +44,11 @@ td:hover {
     background-color: var(--secondaryColor);
 }
 
-#equal-sign {
+#equal-btn {
     background-color: var(--ternaryColor);
     color: var(--primaryColor);
 }
-#equal-sign:hover {
+#equal-btn:hover {
     background-color: var(--ternaryHoverColor);
 }
 .del {
@@ -60,7 +60,7 @@ td:hover {
     background-color: #fdfdfd;
 }
 
-.num,
+.number,
 #display {
     color: #000000;
     font-weight: 400;
