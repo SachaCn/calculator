@@ -4,7 +4,8 @@ const equalButton = document.querySelector('#equal-btn');
 const clearButton = document.querySelector('#clear-btn');
 const clearEntryButton = document.querySelector('#clearEntry-btn');
 const backspaceButton = document.querySelector('#backspace-btn');
-const decimalButton = document.querySelector('#decimal-btn')
+const decimalButton = document.querySelector('#decimal-btn');
+const plusMinusButton = document.querySelector('#plus-minus-button');
 const display = document.querySelector('#display');
 let firstValue = [];
 let secondValue = [];
@@ -16,18 +17,9 @@ clearEntryButton.addEventListener('click', () => clearEntry());
 backspaceButton.addEventListener('click', () => backspace());
 equalButton.addEventListener('click',() => operate());
 decimalButton.addEventListener('click', () => getDecimal());
+plusMinusButton.addEventListener('click', () => togglePlusMinus());
 numberButtons.forEach(btn => btn.addEventListener('click', () => getNumber(btn)));
 operatorButtons.forEach(btn => btn.addEventListener('click', () => {getOperator(btn); showActive(btn)}));
-
-function getDecimal() {    
-    if(display.textContent == firstValue.join('') && !firstValue.includes('.')) {
-        firstValue.push('.');
-        display.textContent == firstValue.join('');
-    } else if(display.textContent == secondValue.join('') && !secondValue.includes('.')) {
-        secondValue.push('.');
-        display.textContent == secondValue.join('');
-    }
-};
 
 function operate() {
     if(firstValue != undefined && secondValue[0] == undefined) return;
@@ -65,6 +57,32 @@ function getOperator(pressed) {
         updateValue();
         operator = pressed.textContent;        
     }    
+};
+
+function getDecimal() {    
+    if(display.textContent == firstValue.join('') && !firstValue.includes('.')) {
+        firstValue.push('.');
+        display.textContent == firstValue.join('');
+    } else if(display.textContent == secondValue.join('') && !secondValue.includes('.')) {
+        secondValue.push('.');
+        display.textContent == secondValue.join('');
+    }
+};
+
+function togglePlusMinus() {
+    if(display.textContent == firstValue.join('') && !firstValue.includes('-')) {
+        firstValue.unshift('-');
+        display.textContent = firstValue.join('');
+    } else if(display.textContent == firstValue.join('') && firstValue.includes('-')) {
+        firstValue.shift();
+        display.textContent = firstValue.join('');
+    }else if(display.textContent == secondValue.join('') && !secondValue.includes('-')) {
+        secondValue.unshift('-');
+        display.textContent = secondValue.join('');
+    } else if(display.textContent == secondValue.join('') && secondValue.includes('-')) {
+        secondValue.shift();
+        display.textContent = secondValue.join('');
+    }
 };
 
 function add(a, b) {    
