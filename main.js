@@ -4,6 +4,7 @@ const equalButton = document.querySelector('#equal-btn');
 const clearButton = document.querySelector('#clear-btn');
 const clearEntryButton = document.querySelector('#clearEntry-btn');
 const backspaceButton = document.querySelector('#backspace-btn');
+const decimalButton = document.querySelector('#decimal-btn')
 const display = document.querySelector('#display');
 let firstValue = [];
 let secondValue = [];
@@ -14,12 +15,24 @@ clearButton.addEventListener('click', () => clearAll());
 clearEntryButton.addEventListener('click', () => clearEntry());
 backspaceButton.addEventListener('click', () => backspace());
 equalButton.addEventListener('click',() => operate());
+decimalButton.addEventListener('click', () => getDecimal());
 numberButtons.forEach(btn => btn.addEventListener('click', () => getNumber(btn)));
 operatorButtons.forEach(btn => btn.addEventListener('click', () => {getOperator(btn); showActive(btn)}));
 
+function getDecimal() {    
+    if(display.textContent == firstValue.join('') && !firstValue.includes('.')) {
+        firstValue.push('.');
+        display.textContent == firstValue.join('');
+    } else if(display.textContent == secondValue.join('') && !secondValue.includes('.')) {
+        secondValue.push('.');
+        display.textContent == secondValue.join('');
+    }
+};
+
 function operate() {
-    let a = Number(firstValue.join(''));
-    let b = Number(secondValue.join(''));
+    if(firstValue != undefined && secondValue[0] == undefined) return;
+    let a = parseFloat(firstValue.join(''));
+    let b = parseFloat(secondValue.join(''));
     firstValue = [];
     secondValue = [];
     removeActive();
@@ -57,25 +70,25 @@ function getOperator(pressed) {
 function add(a, b) {    
     solution = a + b;
     operator = '';
-    return display.textContent = solution;
+    return display.textContent = parseFloat(solution.toFixed(6));
 };
 
 function subtract(a, b) {    
     solution = a - b;
     operator = '';
-    return display.textContent = solution;
+    return display.textContent = parseFloat(solution.toFixed(6));
 };
 
 function mutliply(a, b) {    
     solution = a * b;
     operator = '';
-    return display.textContent = solution;
+    return display.textContent = parseFloat(solution.toFixed(6));
 };
 
 function divide(a, b) {    
     solution = a / b;
     operator = '';
-    return display.textContent = solution;
+    return display.textContent = parseFloat(solution.toFixed(6));
 };
 
 function updateValue() {
