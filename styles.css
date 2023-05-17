@@ -22,19 +22,21 @@ td {
     border: 1px solid #c2c2c2;
     border-radius: 4px;
 }
-th {
-    height: 8rem;
-    font-size: 3.5rem;
+
+#display {
+    height: 6rem;
+    font-size: 3rem;
     font-weight: 400;
     text-align: right;
     vertical-align: bottom;
     padding-right: 0.5rem;
     padding-bottom: 1rem;
 }
+
 td {
     background-color: var(--primaryColor);
     text-align: center;
-    width: 7rem;
+    width: 7.5rem;
     height: 5rem;
     font-size: 2rem;
     cursor: pointer;
@@ -57,7 +59,7 @@ td:hover {
 
 .del,
 .signs {
-    background-color: #fdfdfd;
+    background-color: #fdfdfd05;
 }
 
 .number,
@@ -66,3 +68,6 @@ td:hover {
     font-weight: 400;
 }
 
+.active {
+    background-color: #fff4c460;
+}
