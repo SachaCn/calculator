@@ -19,7 +19,50 @@ equalButton.addEventListener('click',() => operate());
 decimalButton.addEventListener('click', () => getDecimal());
 plusMinusButton.addEventListener('click', () => togglePlusMinus());
 numberButtons.forEach(btn => btn.addEventListener('click', () => getNumber(btn)));
-operatorButtons.forEach(btn => btn.addEventListener('click', () => {getOperator(btn); showActive(btn)}));
+operatorButtons.forEach(btn => btn.addEventListener('click', () => {
+    getOperator(btn); 
+    showActive(btn);
+}));
+window.addEventListener('keydown', (e) => {
+    const numKeys = document.querySelector(`.number[data-key="${e.code}"]`);   
+    if(!numKeys) return;   
+        getNumber(numKeys);
+});
+window.addEventListener('keydown', (e) => {
+    const operatorKeys = document.querySelector(`.operator-signs[data-key="${e.code}"]`);     
+    if(!operatorKeys) return;
+        getOperator(operatorKeys);
+        showActive(operatorKeys);
+});
+window.addEventListener('keydown', (e) => {
+    const clearKey = document.querySelector(`#clear-btn[data-key="${e.code}"]`);     
+    if(!clearKey) return;
+        clearAll();
+});
+window.addEventListener('keydown', (e) => {
+    const clearEntryKey = document.querySelector(`#clearEntry-btn[data-key="${e.code}"]`);     
+    if(!clearEntryKey) return;
+        clearEntry();
+});
+window.addEventListener('keydown', (e) => {
+    const backspaceKey = document.querySelector(`#backspace-btn[data-key="${e.code}"]`);     
+    if(!backspaceKey) return;
+        backspace();
+});
+window.addEventListener('keydown', (e) => {
+    const equalKey1 = document.querySelector(`#equal-btn[data-key1="${e.code}"]`);
+    const equalKey2 = document.querySelector(`#equal-btn[data-key2="${e.code}"]`);
+    const equalKey3 = document.querySelector(`#equal-btn[data-key3="${e.code}"]`);   
+    if(!equalKey1 && !equalKey2 && !equalKey3) return;   
+        operate();
+});
+window.addEventListener('keydown', (e) => {
+    const decimalKey = document.querySelector(`#decimal-btn[data-key="${e.code}"]`);
+    if(!decimalKey) return;
+        getDecimal();
+});
+
+window.addEventListener('keydown', (e) => console.log(e));
 
 function operate() {
     if(firstValue != undefined && secondValue[0] == undefined) return;
