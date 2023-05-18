@@ -8,9 +8,15 @@ body {
     margin: 0;
     height: 100vh;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     color: #6b6b6b;
     font-weight: 100;
+    background-color: #fdfdfd;
+    overflow: hidden;
+    box-sizing: border-box;
 }
 table {
     margin: auto;
@@ -44,6 +50,7 @@ td {
 
 td:hover {
     background-color: var(--secondaryColor);
+    transform: scale(0.97);
 }
 
 #equal-btn {
@@ -70,4 +77,22 @@ td:hover {
 
 .active {
     background-color: #fff4c460;
+}
+
+#footer {
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+p {
+    font-size: 20px;
+    margin: 0;
+}
+#logo {
+    width: 35px;
+    transition: ease-in 0.3s;
+}
+#logo:hover {
+    transform: scale(1.11);
 }
